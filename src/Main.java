@@ -15,26 +15,38 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("ohayo gozaimasu!\nType help");
         do {
             isrunning = false;
             switch (input.nextLine()){
+                case "help":
+                    System.out.println("------------------------------------------");
+                    System.out.println("fight - Use this command to fight random demons.");
+                    System.out.println("inv - Use this to know about your health & weapon.");
+                    System.out.println("clear -  Use to clear the screen.");
+                    System.out.println("exit - Use to know quit the game.");
+                    System.out.println("Thanks for playing!");
+                    System.out.println("Source code available @ https://github.com/Sidhhh/text-based-adventure-game#text-based-adventure-game-tbag");
+                    System.out.println("Based on the idea by https://github.com/Asianerd/TextAdventure");
+                    System.out.println("------------------------------------------");
+                    isrunning = true;
+                    break;
                 case "inv":
                     System.out.println("---------------------");
                     System.out.println("Health: " + playerHealth);
                     System.out.println("Weapon: " + playerWeapon);
                     System.out.println("---------------------");
-                    main(args);
+                    isrunning = true;
+                    break;
                 case "fight":
                     fight(args);
                     main(args);
-                case "help":
-                    System.out.println("-----------");
-                    System.out.println("Help");
-                    break;
                 case "clear":
                     for (int i = 0; i < 10; i++){
                         System.out.println("\n");
                     }
+                    isrunning = true;
+                    break;
                 case "exit":
                     return;
                 default:
@@ -65,10 +77,10 @@ public class Main {
                             System.out.println("Health: " + playerHealth);
                             System.out.println("Weapon: " + playerWeapon);
                             System.out.println("---------------------");
-                            attack(args);
+                            fight(args);
                         default:
                             System.out.println("ERRR");
-                            return;
+                            fight(args);
                     }
                 } while (isfighting);
             }
