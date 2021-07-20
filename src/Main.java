@@ -50,20 +50,36 @@ public class Main {
         int attack = rand.nextInt(3);
         playerHealth = playerHealth-attack;
         if (enemyHealth >= 0) {
-            System.out.println("You have been attacked!...type attack to attack the knight");
-            System.out.println("Your health: " + playerHealth);
-            do {
-                isrunning = false;
-                switch (input.nextLine()) {
-                    case "exit":
-                        return;
-                    case "attack":
-                        attack(args);
-                }
-            } while (isfighting);
+            if (playerHealth >= 0) {
+                System.out.println("You have been attacked!...type attack to attack the knight");
+                System.out.println("Your health: " + playerHealth);
+                do {
+                    isrunning = false;
+                    switch (input.nextLine()) {
+                        case "exit":
+                            return;
+                        case "attack":
+                            attack(args);
+                        case "inv":
+                            System.out.println("---------------------");
+                            System.out.println("Health: " + playerHealth);
+                            System.out.println("Weapon: " + playerWeapon);
+                            System.out.println("---------------------");
+                            attack(args);
+                        default:
+                            System.out.println("ERRR");
+                            return;
+                    }
+                } while (isfighting);
+            }
+            else{
+                System.out.println("You lost");
+                return;
+            }
         }
         else {
             System.out.println("You won!");
+            main(args);
         }
     }
     public static void attack(String[] args){
