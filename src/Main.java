@@ -3,15 +3,28 @@ import java.util.Random;
 
 public class Main {
 
+    static Random rand = new Random();
+    static Scanner input = new Scanner(System.in);
+
+    static int randEnemy = rand.nextInt(3);
+
     static int playerHealth = 10;
     static String playerWeapon = "Knife";
 
-    static int enemyHealth = 10;
+    static String Spider;
+    static int spiderHealth = 10;
 
+    static String Ant;
+    static int antHealth = 10;
+
+    static String Dragon;
+    static int dragonHealth = 10;
+
+    static boolean isDragon;
+    static boolean isAnt;
+    static boolean isSpider;
     static boolean isrunning;
     static boolean isfighting;
-
-    static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -57,41 +70,132 @@ public class Main {
 
     }
     public static void fight(String[] args){
-        Random rand = new Random();
-        //attack
+
+        if (randEnemy == 1) {
+            isSpider = true;
+            isAnt = false;
+            isDragon = false;
+        }
+        else if (randEnemy == 2){
+            isSpider = false;
+            isAnt = true;
+            isDragon = false;
+        }
+        else if (randEnemy == 3) {
+            isSpider = false;
+            isAnt = false;
+            isDragon = true;
+        }
+
         int attack = rand.nextInt(3);
         playerHealth = playerHealth-attack;
-        if (enemyHealth >= 0) {
-            if (playerHealth >= 0) {
-                System.out.println("You have been attacked!...type attack to attack the knight");
-                System.out.println("Your health: " + playerHealth);
-                do {
-                    isrunning = false;
-                    switch (input.nextLine()) {
-                        case "exit":
-                            return;
-                        case "attack":
-                            attack(args);
-                        case "inv":
-                            System.out.println("---------------------");
-                            System.out.println("Health: " + playerHealth);
-                            System.out.println("Weapon: " + playerWeapon);
-                            System.out.println("---------------------");
-                            fight(args);
-                        default:
-                            System.out.println("ERRR");
-                            fight(args);
-                    }
-                } while (isfighting);
-            }
-            else{
-                System.out.println("You lost");
-                return;
+        if (isSpider) {
+            if (spiderHealth >= 0) {
+                if (playerHealth >= 0) {
+                    System.out.println("You have been attacked!...type attack to attack the SPIDER");
+                    System.out.println("Your health: " + playerHealth);
+                    do {
+                        isrunning = false;
+                        switch (input.nextLine()) {
+                            case "exit":
+                                return;
+                            case "attack":
+                                attack(args);
+                            case "inv":
+                                System.out.println("---------------------");
+                                System.out.println("Health: " + playerHealth);
+                                System.out.println("Weapon: " + playerWeapon);
+                                System.out.println("---------------------");
+                                fight(args);
+                            default:
+                                System.out.println("ERRR");
+                                fight(args);
+                        }
+                    } while (isfighting);
+                } else {
+                    playerHealth = 10;
+                    spiderHealth = 10;
+                    System.out.println("You lost");
+                    main(args);
+                }
+            } else {
+                playerHealth = 10;
+                spiderHealth = 10;
+                System.out.println("You won!");
+                main(args);
             }
         }
-        else {
-            System.out.println("You won!");
-            main(args);
+        else if (isAnt) {
+            if (antHealth >= 0) {
+                if (playerHealth >= 0) {
+                    System.out.println("You have been attacked!...type attack to attack the ANT");
+                    System.out.println("Your health: " + playerHealth);
+                    do {
+                        isrunning = false;
+                        switch (input.nextLine()) {
+                            case "exit":
+                                return;
+                            case "attack":
+                                attack(args);
+                            case "inv":
+                                System.out.println("---------------------");
+                                System.out.println("Health: " + playerHealth);
+                                System.out.println("Weapon: " + playerWeapon);
+                                System.out.println("---------------------");
+                                fight(args);
+                            default:
+                                System.out.println("ERRR");
+                                fight(args);
+                        }
+                    } while (isfighting);
+                } else {
+                    playerHealth = 10;
+                    antHealth = 10;
+                    System.out.println("You lost");
+                    main(args);
+                }
+            } else {
+                playerHealth = 10;
+                antHealth = 10;
+                System.out.println("You won!");
+                main(args);
+            }
+        }
+        else if (isDragon) {
+            if (dragonHealth >= 0) {
+                if (playerHealth >= 0) {
+                    System.out.println("You have been attacked!...type attack to attack the DRAGON");
+                    System.out.println("Your health: " + playerHealth);
+                    do {
+                        isrunning = false;
+                        switch (input.nextLine()) {
+                            case "exit":
+                                return;
+                            case "attack":
+                                attack(args);
+                            case "inv":
+                                System.out.println("---------------------");
+                                System.out.println("Health: " + playerHealth);
+                                System.out.println("Weapon: " + playerWeapon);
+                                System.out.println("---------------------");
+                                fight(args);
+                            default:
+                                System.out.println("ERRR");
+                                fight(args);
+                        }
+                    } while (isfighting);
+                } else {
+                    playerHealth = 10;
+                    dragonHealth = 10;
+                    System.out.println("You lost");
+                    main(args);
+                }
+            } else {
+                playerHealth = 10;
+                dragonHealth = 10;
+                System.out.println("You won!");
+                main(args);
+            }
         }
     }
     public static void attack(String[] args){
@@ -99,9 +203,23 @@ public class Main {
 
         int attack = rand.nextInt(  3);
 
-        enemyHealth = enemyHealth-attack;
-        System.out.println("You attacked the knight");
-        System.out.println("Enemy Health: " + enemyHealth);
-        fight(args);
+        if (isAnt){
+            antHealth = antHealth - attack;
+            System.out.println("You attacked the ANT");
+            System.out.println("Enemy Health: " + antHealth);
+            fight(args);
+        }
+        else if (isSpider) {
+            spiderHealth = spiderHealth-attack;
+            System.out.println("You attacked the SPIDER");
+            System.out.println("Enemy Health: " + spiderHealth);
+            fight(args);
+        }
+        else if (isDragon) {
+            dragonHealth = dragonHealth-attack;
+            System.out.println("You attacked the DRAGON");
+            System.out.println("Enemy Health: " + dragonHealth);
+            fight(args);
+        }
     }
 }
