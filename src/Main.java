@@ -161,7 +161,7 @@ public class Main {
                 main(args);
             }
         }
-        else if (isDragon) {
+        else {
             if (dragonHealth >= 0) {
                 if (playerHealth >= 0) {
                     System.out.println("You have been attacked!...type attack to attack the DRAGON");
@@ -173,12 +173,6 @@ public class Main {
                                 return;
                             case "attack":
                                 attack(args);
-                            case "inv":
-                                System.out.println("---------------------");
-                                System.out.println("Health: " + playerHealth);
-                                System.out.println("Weapon: " + playerWeapon);
-                                System.out.println("---------------------");
-                                fight(args);
                             default:
                                 System.out.println("ERRR");
                                 fight(args);
@@ -215,7 +209,7 @@ public class Main {
             System.out.println("Enemy Health: " + spiderHealth);
             fight(args);
         }
-        else if (isDragon) {
+        else {
             dragonHealth = dragonHealth-attack;
             System.out.println("You attacked the DRAGON");
             System.out.println("Enemy Health: " + dragonHealth);
