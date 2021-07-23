@@ -113,13 +113,25 @@ public class Main {
                         }
                     } while (isfighting);
                 } else {
+                    randEnemy = rand.nextInt(3);
+                    isSpider = false;
+                    isDragon = false;
+                    isAnt = false;
                     playerHealth = 10;
+                    dragonHealth = 10;
+                    antHealth = 10;
                     spiderHealth = 10;
                     System.out.println("You lost");
                     main(args);
                 }
             } else {
+                randEnemy = rand.nextInt(3);
+                isSpider = false;
+                isDragon = false;
+                isAnt = false;
                 playerHealth = 10;
+                dragonHealth = 10;
+                antHealth = 10;
                 spiderHealth = 10;
                 System.out.println("You won!");
                 main(args);
@@ -149,14 +161,26 @@ public class Main {
                         }
                     } while (isfighting);
                 } else {
+                    randEnemy = rand.nextInt(3);
+                    isSpider = false;
+                    isDragon = false;
+                    isAnt = false;
                     playerHealth = 10;
+                    dragonHealth = 10;
                     antHealth = 10;
+                    spiderHealth = 10;
                     System.out.println("You lost");
                     main(args);
                 }
             } else {
+                randEnemy = rand.nextInt(3);
+                isSpider = false;
+                isDragon = false;
+                isAnt = false;
                 playerHealth = 10;
+                dragonHealth = 10;
                 antHealth = 10;
+                spiderHealth = 10;
                 System.out.println("You won!");
                 main(args);
             }
@@ -179,14 +203,26 @@ public class Main {
                         }
                     } while (isfighting);
                 } else {
+                    randEnemy = rand.nextInt(3);
+                    isSpider = false;
+                    isDragon = false;
+                    isAnt = false;
                     playerHealth = 10;
                     dragonHealth = 10;
+                    antHealth = 10;
+                    spiderHealth = 10;
                     System.out.println("You lost");
                     main(args);
                 }
             } else {
+                randEnemy = rand.nextInt(3);
+                isSpider = false;
+                isDragon = false;
+                isAnt = false;
                 playerHealth = 10;
                 dragonHealth = 10;
+                antHealth = 10;
+                spiderHealth = 10;
                 System.out.println("You won!");
                 main(args);
             }
