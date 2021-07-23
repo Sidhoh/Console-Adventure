@@ -5,5 +5,5 @@ It's a adventure game in command line. where player can fight demons...
 
 
 # Todo
-- Multiple weapon system
+- <s>Multiple weapons system</s>
 - XP system
