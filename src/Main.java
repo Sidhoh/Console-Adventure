@@ -11,6 +11,10 @@ public class Main {
     static int playerHealth = 10;
     static String playerWeapon = "Knife";
 
+    static String Katana = "Katana";
+    static String Bow = "Bow";
+    static String Crossbow = "Crossbow";
+
     static String Spider;
     static int spiderHealth = 10;
 
@@ -133,6 +137,7 @@ public class Main {
                 dragonHealth = 10;
                 antHealth = 10;
                 spiderHealth = 10;
+                playerWeapon = Katana;
                 System.out.println("You won!");
                 main(args);
             }
@@ -181,6 +186,7 @@ public class Main {
                 dragonHealth = 10;
                 antHealth = 10;
                 spiderHealth = 10;
+                playerWeapon = Bow;
                 System.out.println("You won!");
                 main(args);
             }
@@ -223,6 +229,7 @@ public class Main {
                 dragonHealth = 10;
                 antHealth = 10;
                 spiderHealth = 10;
+                playerWeapon = Crossbow;
                 System.out.println("You won!");
                 main(args);
             }
@@ -232,6 +239,16 @@ public class Main {
         Random rand = new Random();
 
         int attack = rand.nextInt(  3);
+
+        if (playerWeapon.equals(Katana)){
+            attack = rand.nextInt(5);
+        }
+        if (playerWeapon.equals(Bow)){
+            attack = rand.nextInt(7);
+        }
+        if (playerWeapon.equals(Crossbow)){
+            attack = rand.nextInt(9);
+        }
 
         if (isAnt){
             antHealth = antHealth - attack;
